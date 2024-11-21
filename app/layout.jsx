@@ -43,9 +43,7 @@ export async function generateMetadata() {
     metadataBase = settings?.ogImage?.metadataBase
       ? new URL(settings.ogImage.metadataBase)
       : undefined
-  } catch {
-    // ignore
-  }
+  } catch {}
   return {
     metadataBase,
     title: {
@@ -63,7 +61,7 @@ export default async function RootLayout({children}) {
   const {isEnabled: isDraftMode} = await draftMode()
 
   return (
-    <html lang='en' suppressHydrationWarning className='bg-white text-black'>
+    <html lang='en' suppressHydrationWarning>
       <body className={`${poppins.variable} ${sansita.variable}`}>
         <ThemeProvider
           attribute='class'
